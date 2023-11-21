@@ -1,1 +1,61 @@
-print("Amir ijaz")
+# parent class
+class vendor:
+  def __init__(self):
+    self.name=input("Enter Your name : \n")
+    
+  def show(self):
+    print(f"\nWelcome,{self.name}")
+
+# child class 1
+class manufacturer(vendor):
+  def __init__(self):
+    super().__init__()
+    self.type=input("Enter your type of manufacturing : \n")
+    self.vendor_id=input("Enter your vendor id : \n")
+  def show(self):
+    super().show()
+    print(f"You are {self.type} manfacturer in iub")
+    print(f"Your vendor id is : {self.vendor_id}")
+
+# child class 2
+class service_provider(vendor):
+  def __init__(self):
+    super().__init__()
+    self.service=input("Which type of service you provide in the University gas/electricity/internet \n").lower()
+  def show(self):
+      super().show()
+      if self.service=="gas":
+        print("You are a gas provider in the iub")
+      elif self.service=="electricity":
+         print("You are a elctricity provider in iub")
+      elif self.service=="internet":
+         print("You are a internet provider in iub")
+      else:
+         print("invalid input")
+
+# child class 3
+class retailer(vendor):
+  def __init__(self):
+    super().__init__()
+    self.products=input("Which type of goods you sell : \n")
+  def show(self):
+    super().show()
+    print(f"You sell {self.products}")
+    
+# CALL TO THE CODE
+while True:
+  type=input("Enter type of vendor manufacturer/service_provider/retailer \n").lower()
+  if type=="manufacturer":
+        mnf=manufacturer()
+        mnf.show()
+        break
+  elif type=="service_provider":
+        spro=service_provider()
+        spro.show()
+        break
+  elif type=="retailer":
+        rtlr=retailer()
+        rtlr.show()
+        break
+  else:
+        print("Please Enter a valid input")
